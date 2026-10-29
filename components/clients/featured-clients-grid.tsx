@@ -35,7 +35,7 @@ const clients: ClientCard[] = [
     id: 4,
     name: "Zespri",
     description:
-      "It globally recognizes best fruit & premium kiwifruit brand delivering excellence in both offering a bright, vibrant taste & fresh produce world. The only quality nutritious fruit has grown successfully.",
+      "It is a globally recognized best fruit & premium kiwi fruit brand delivering excellence in both offering a bright, vibrant taste & fresh produce world. The only quality nutritious fruit has grown successfully.",
     logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F63036d9ee4cb4551a327ef146ccd5f52?format=webp&width=800",
   },
   {
@@ -67,9 +67,7 @@ export function FeaturedClientsGrid() {
             <div
               key={client.id}
               data-card-id={client.id}
-              className={`bg-background p-14 rounded-md border border-border/50 hover:border-primary/50-none border border-border/50 transition-all duration-300 ${
-                "animate-fade-in-up"
-              }`}
+              className="bg-card/60 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-border/60 hover:border-primary/50 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Logo */}

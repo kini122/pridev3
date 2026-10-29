@@ -46,31 +46,44 @@ export function ClientSuccessStories() {
   
 
   return (
-    <section className="py-24 px-4 bg-secondary">
+    <section className="py-24 px-4 bg-background border-t border-border/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-center text-foreground mb-16">Client Success Stories</h2>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
+            Proven Results
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-white mb-4">
+            Client Success Stories
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Measurable impact, massive engagement, and unforgettable live executions across India.
+          </p>
+        </div>
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
             <div
               key={study.id}
               data-story-id={study.id}
-              className={`bg-background p-8 rounded-md border border-border/50 hover:border-primary/50-none border border-border/50 hover: transition-all duration-300 ${
-                "animate-fade-in-up"
-              }`}
+              className="bg-card p-8 rounded-xl border border-border/70 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="client-logo mb-4">
-                <img src={study.clientLogo} alt={`${study.title} logo`} className="w-28 h-auto mx-auto object-contain" />
+              <div>
+                <div className="client-logo mb-6 p-4 rounded-lg bg-secondary/50 border border-border/40 flex items-center justify-center h-20">
+                  <img src={study.clientLogo} alt={`${study.title} logo`} className="max-h-12 w-auto object-contain dark:invert" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">{study.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{study.description}</p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{study.title}</h3>
-              <p className="text-muted-foreground mb-4">{study.description}</p>
-              <div className="pt-4 border-t border-border">
-                <p className="text-sm font-semibold text-primary">{study.results}</p>
+              <div>
+                <div className="pt-4 border-t border-border/50 mb-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">Impact</span>
+                  <p className="text-sm font-medium text-foreground">{study.results}</p>
+                </div>
+                <Link href="/portfolio" className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:text-primary/80 transition-colors">
+                  Explore Related Projects →
+                </Link>
               </div>
-              <Link href="/portfolio" className="inline-block mt-4 text-primary font-semibold hover:text-accent transition-colors">
-                Read Full Story →
-              </Link>
             </div>
           ))}
         </div>

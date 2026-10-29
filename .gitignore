@@ -40,3 +40,10 @@ gen_services_premium.py
 ultimate_ui_cleanup.py
 update_portfolio.py
 _review_before_delete/
+
+# duplicate and backup videos
+Home Hero Video (3).mp4
+WhatsApp Video 2026-10-12 at 2.30.42 PM.mp4
+public/home/hero/hero-video-old-backup.mp4
+public/home/hero/hero-video-prev.mp4
+public/home/hero/home-hero-video.mp4

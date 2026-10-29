@@ -66,13 +66,13 @@ export function Navbar() {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center" aria-label="Primary">
-            <ul className="flex items-center gap-10 text-[15px] font-medium text-white/80">
+            <ul className="flex items-center gap-8 lg:gap-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
               <li>
                 <Link
                   href="/"
-                  className={`transition-all duration-300 relative pb-1 ${isActive("/")
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
                   Home
@@ -81,9 +81,9 @@ export function Navbar() {
               <li>
                 <Link
                   href="/about"
-                  className={`transition-all duration-300 relative pb-1 ${isActive("/about")
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/about")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
                   About
@@ -94,20 +94,20 @@ export function Navbar() {
               <li className="relative group">
                 <Link
                   href="/services"
-                  className={`flex items-center gap-1.5 transition-all duration-300 relative pb-1 ${isServicesActive
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`flex items-center gap-1.5 transition-colors duration-200 relative pb-1 ${isServicesActive
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
                   <span>Services</span>
-                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200 text-muted-foreground group-hover:text-primary" />
                 </Link>
-                <div className="absolute left-0 mt-4 w-56 rounded-md backdrop-blur-md bg-background/95 border border-border/40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-3 shadow-none border border-border/50-2xl">
+                <div className="absolute left-0 mt-3 w-60 rounded-xl backdrop-blur-xl bg-card/95 border border-border/80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 shadow-2xl">
                   {SERVICES.map((service) => (
                     <Link
                       key={service.href}
                       href={service.href}
-                      className="block px-5 py-2.5 text-white/80 hover:text-white hover:bg-background/10 transition-all duration-200 text-sm font-medium"
+                      className="block px-4 py-2.5 text-white/80 hover:text-primary hover:bg-white/[0.04] transition-colors text-sm font-medium"
                     >
                       {service.name}
                     </Link>
@@ -118,31 +118,42 @@ export function Navbar() {
               <li>
                 <Link
                   href="/portfolio"
-                  className={`transition-all duration-300 relative pb-1 ${isActive("/portfolio")
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/portfolio")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
-                  Portfolio
+                  Work
                 </Link>
               </li>
               <li>
                 <Link
                   href="/clients"
-                  className={`transition-all duration-300 relative pb-1 ${isActive("/clients")
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/clients")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
-                  Our Clients
+                  Clients
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/careers")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
+                    }`}
+                >
+                  Careers
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className={`transition-all duration-300 relative pb-1 ${isActive("/contact")
-                      ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-background"
-                      : "hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-background hover:after:w-full after:transition-all after:duration-300"
+                  className={`transition-colors duration-200 relative pb-1 ${isActive("/contact")
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
                     }`}
                 >
                   Contact
@@ -154,15 +165,16 @@ export function Navbar() {
           {/* CTA Button */}
           <Link
             href="/contact"
-            className="hidden sm:inline-block rounded-md border-2 border-white px-8 py-2.5 text-[14px] font-medium text-white transition-all duration-300 hover:bg-background hover:text-foreground hover:border-primary/50-none border border-border/50"
+            className="hidden sm:inline-flex items-center justify-center rounded-lg border border-primary/50 bg-primary/10 hover:bg-primary text-white hover:text-black px-6 py-2.5 text-sm font-semibold transition-all duration-200 shadow-sm"
           >
             Let&apos;s work together
           </Link>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white transition-opacity duration-300 hover:opacity-70"
+            className="md:hidden text-white transition-opacity duration-200 hover:opacity-70 p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -170,46 +182,88 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-border/40 bg-background/95">
-            <Link href="/" className="block px-4 py-3 text-white/80 hover:text-white hover:bg-background/10 transition-colors text-sm font-medium">
+          <div className="md:hidden pb-6 pt-2 border-t border-border/40 bg-background/95 backdrop-blur-xl">
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
               Home
             </Link>
-            <Link href="/about" className="block px-4 py-3 text-white/80 hover:text-white hover:bg-background/10 transition-colors text-sm font-medium">
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/about") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
               About
             </Link>
-            <div className="flex items-center w-full text-white/80 hover:text-white hover:bg-background/10 transition-colors">
-              <Link href="/services" className="flex-1 px-4 py-3 font-medium text-sm">
+            <div className="flex items-center justify-between w-full text-white/80 hover:text-white hover:bg-white/[0.04] transition-colors">
+              <Link
+                href="/services"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex-1 px-4 py-3 font-medium text-sm ${isServicesActive ? "text-primary" : ""}`}
+              >
                 Services
               </Link>
               <button
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="p-3 pr-4"
+                className="p-3 pr-4 text-muted-foreground"
+                aria-label="Toggle services submenu"
               >
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180 text-primary" : ""}`} />
               </button>
             </div>
             {isServicesOpen && (
-              <div className="pl-4 bg-background/5">
+              <div className="pl-6 bg-card/40 border-l border-primary/20 ml-4 my-1 space-y-1">
                 {SERVICES.map((service) => (
                   <Link
                     key={service.href}
                     href={service.href}
-                    className="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-background/10 transition-colors font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-sm text-white/70 hover:text-primary transition-colors font-medium"
                   >
                     {service.name}
                   </Link>
                 ))}
               </div>
             )}
-            <Link href="/portfolio" className="block px-4 py-3 text-white/80 hover:text-white hover:bg-background/10 transition-colors text-sm font-medium">
+            <Link
+              href="/portfolio"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/portfolio") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
               Portfolio
             </Link>
-            <Link href="/clients" className="block px-4 py-3 text-white/80 hover:text-white hover:bg-background/10 transition-colors text-sm font-medium">
+            <Link
+              href="/clients"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/clients") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
               Our Clients
             </Link>
-            <Link href="/contact" className="block px-4 py-3 text-white/80 hover:text-white hover:bg-background/10 transition-colors text-sm font-medium">
+            <Link
+              href="/careers"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/careers") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
+              Careers
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/contact") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
+            >
               Contact
             </Link>
+            <div className="px-4 pt-4">
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full inline-flex items-center justify-center rounded-lg bg-primary text-black font-semibold px-4 py-2.5 text-sm"
+              >
+                Let&apos;s work together
+              </Link>
+            </div>
           </div>
         )}
       </div>

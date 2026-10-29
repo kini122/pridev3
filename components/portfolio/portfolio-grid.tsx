@@ -317,11 +317,11 @@ export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
       <section className="py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           {/* Masonry Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredItems.slice(0, displayedItems).map((item, index) => (
               <div
                 key={item.id}
-                className="group relative overflow-hidden rounded-md aspect-video cursor-pointer animate-fade-in-up"
+                className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer animate-fade-in-up border border-border/60 hover:border-primary/50 shadow-md hover:shadow-xl transition-all duration-300"
                 style={{ animationDelay: `${index * 50}ms` }}
                 onClick={() => setSelectedItem(item)}
               >
@@ -333,27 +333,27 @@ export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
                 />
 
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
 
                 {/* Content - Slides up on Hover */}
-                <div className="absolute inset-0 flex flex-col items-end justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <div className="w-full">
-                    <h3 className="text-white font-bold text-lg md:text-xl mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider block mb-1">
+                      {item.category.replace("-", " ")}
+                    </span>
+                    <h3 className="text-white font-bold text-base sm:text-lg mb-1 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-white/80 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                      Lightbox
+                    <p className="text-white/60 text-xs font-medium">
+                      {item.date}
                     </p>
                   </div>
 
                   {/* Quick View Icon */}
-                  <div className="absolute top-4 right-4 bg-background/20 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300">
-                    <Eye className="w-5 h-5 text-white" />
+                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md p-2.5 rounded-full opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100 transition-all duration-200 border border-white/20">
+                    <Eye className="w-4 h-4 text-white" />
                   </div>
                 </div>
-
-                {/* Subtle Shadow */}
-                <div className="absolute inset-0 border border-border/50 shadow-none border border-border/50-black/10 rounded-md pointer-events-none" />
               </div>
             ))}
           </div>

@@ -252,37 +252,37 @@ const TestimonialCard = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-red backdrop-blur-lg h-full w-full fixed inset-0"
+              className="bg-black/80 backdrop-blur-md h-full w-full fixed inset-0"
             />
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               ref={containerRef}
               layoutId={layout ? `card-${testimonial.name}` : undefined}
-              className="max-w-5xl mx-auto bg-gradient-to-b from-card to-background h-full z-[60] p-4 md:p-10 rounded-md relative md:mt-10"
+              className="max-w-2xl mx-auto bg-card border border-border/70 h-auto z-[60] p-6 md:p-10 rounded-2xl relative mt-24 shadow-2xl"
             >
               <button
-                className="sticky top-4 h-8 w-8 right-0 ml-auto rounded-full flex items-center justify-center bg-primary"
+                className="absolute top-4 right-4 h-9 w-9 rounded-full flex items-center justify-center bg-secondary hover:bg-muted text-white transition-colors"
                 onClick={handleCollapse}
               >
-                <X className="h-6 w-6 text-white dark:text-neutral-900 absolute" />
+                <X className="h-5 w-5" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${testimonial.name}` : undefined}
-                className="px-0 md:px-20 text-foreground/80 text-lg dark:text-white font-thin font-sans underline underline-offset-8"
+                className="text-primary text-xs font-semibold uppercase tracking-wider mb-2"
               >
                 {testimonial.designation}
               </motion.p>
-              <motion.p
+              <motion.h3
                 layoutId={layout ? `title-${testimonial.name}` : undefined}
-                className="px-0 md:px-20 text-2xl md:text-4xl font-normal italic text-foreground/80 mt-4 dark:text-white font-sans lowercase"
+                className="text-2xl md:text-3xl font-bold text-white mb-6"
               >
                 {testimonial.name}
-              </motion.p>
-              <div className="py-8 text-foreground/80 px-0 md:px-20 text-3xl lowercase font-thin font-sans leading-snug tracking-wide">
-                <Quote className="h-6 w-6 text-foreground/80 dark:text-neutral-900" />
-                {testimonial.description}
+              </motion.h3>
+              <div className="text-muted-foreground text-base md:text-lg leading-relaxed relative">
+                <Quote className="h-8 w-8 text-primary/30 mb-3" />
+                <p>"{testimonial.description}"</p>
               </div>
             </motion.div>
           </div>
@@ -292,48 +292,36 @@ const TestimonialCard = ({
       <motion.button
         layoutId={layout ? `card-${testimonial.name}` : undefined}
         onClick={handleExpand}
-        className=""
+        className="text-left cursor-pointer focus:outline-none"
         whileHover={{
-          rotateX: 2,
-          rotateY: 2,
-          rotate: 3,
-          scale: 1.02,
-          transition: { duration: 0.3, ease: "easeOut" },
+          y: -4,
+          transition: { duration: 0.2, ease: "easeOut" },
         }}
       >
         <div
-          className={`${index % 2 === 0 ? "rotate-0" : "-rotate-0"} rounded-md bg-gradient-to-b from-card to-background h-[500px] md:h-[550px] w-80 md:w-96 overflow-hidden flex flex-col items-center justify-center relative z-10 border border-border/50`}
+          className="rounded-2xl bg-card border border-border/70 hover:border-primary/50 transition-all duration-300 h-[420px] md:h-[450px] w-80 md:w-96 overflow-hidden flex flex-col items-center justify-between p-8 relative z-10 shadow-lg group"
         >
-          <div className="absolute opacity-30" style={{ inset: "-1px 0 0" }}>
-            <div className="absolute inset-0">
-              <Image
-                className="block w-full h-full object-center object-cover"
-                src={backgroundImage}
-                alt="Background layer"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors pointer-events-none" />
+          
+          <div className="w-full flex justify-center pt-2">
+            <ProfileImage src={testimonial.profileImage} alt={testimonial.name} />
           </div>
-          <ProfileImage src={testimonial.profileImage} alt={testimonial.name} />
-          <motion.p
-            layoutId={layout ? `title-${testimonial.name}` : undefined}
-            className="text-foreground/80 text-2xl md:text-2xl font-normal text-center [text-wrap:balance] font-sans mt-4 lowercase px-3"
-          >
-            {testimonial.description.length > 100 ? `${testimonial.description.slice(0, 100)}...` : testimonial.description}
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `category-${testimonial.name}` : undefined}
-            className="text-foreground/80 text-xl md:text-2xl font-thin font-sans italic text-center mt-5 lowercase"
-          >
-            {testimonial.name}.
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `category-${testimonial.name}` : undefined}
-            className="text-foreground/80 text-base md:text-base font-thin font-sans italic text-center mt-1 lowercase underline underline-offset-8 decoration-1"
-          >
-            {testimonial.designation.length > 25 ? `${testimonial.designation.slice(0, 25)}...` : testimonial.designation}
-          </motion.p>
+
+          <div className="my-auto text-center px-2">
+            <Quote className="w-6 h-6 text-primary/40 mx-auto mb-3" />
+            <p className="text-white/90 text-sm md:text-base leading-relaxed line-clamp-4">
+              "{testimonial.description}"
+            </p>
+          </div>
+
+          <div className="w-full text-center border-t border-border/40 pt-4">
+            <h4 className="text-white font-bold text-base group-hover:text-primary transition-colors">
+              {testimonial.name}
+            </h4>
+            <p className="text-primary text-xs font-medium mt-1">
+              {testimonial.designation}
+            </p>
+          </div>
         </div>
       </motion.button>
     </>
@@ -344,18 +332,18 @@ const ProfileImage = ({ src, alt, ...rest }: ImageProps) => {
   const [isLoading, setLoading] = useState(true)
 
   return (
-    <div className="w-[90px] h-[90px] md:w-[150px] md:h-[150px] opacity-80 overflow-hidden rounded-[1000px] border-[3px] border-solid border-[border-border] aspect-[1/1] flex-none saturate-[0.2] sepia-[0.46] relative">
+    <div className="w-20 h-20 md:w-24 md:h-24 overflow-hidden rounded-full border-2 border-primary/40 shadow-md shadow-primary/10 flex-none relative bg-secondary">
       <Image
         className={cn(
-          "transition duration-300 absolute top-0 inset-0 rounded-inherit object-cover z-50",
+          "transition duration-300 absolute top-0 inset-0 object-cover",
           isLoading ? "blur-sm" : "blur-0",
         )}
         onLoadingComplete={() => {
           return setLoading(false)
         }}
         src={src}
-        width={150}
-        height={150}
+        width={96}
+        height={96}
         loading="lazy"
         decoding="async"
         alt={alt || "Profile image"}

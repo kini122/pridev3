@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { ChevronUp } from "lucide-react"
 
 export function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {

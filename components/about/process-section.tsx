@@ -7,7 +7,7 @@ const processSteps = [
     phase: "01",
     title: "Discussion",
     description:
-      "We start by understanding your vision, goals, and requirements. Our team listens carefully to bring your ideas to life.",
+      "Every exceptional experience begins with your vision. We take the time to understand your goals and craft every detail around your unique needs.",
   },
   {
     phase: "02",

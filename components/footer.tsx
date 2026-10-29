@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Facebook, Instagram, Youtube, Phone, Mail, ArrowUp } from "lucide-react"
+import { Facebook, Instagram, Youtube, Phone, Mail, ArrowUpRight, Linkedin } from "lucide-react"
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer"
 import { useEffect, useState } from "react"
 
@@ -13,9 +13,9 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-card border-t border-border/50 relative h-fit rounded-md overflow-hidden m-8">
-      <div className="max-w-7xl mx-auto p-14 z-40 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-10 lg:gap-16 pb-12">
+    <footer className="bg-black border-t border-white/10 relative h-fit overflow-hidden w-full mt-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-16 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-12">
           {/* Column 1 - Company Info */}
           <div>
             <div className="flex items-center gap-3">
@@ -64,6 +64,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
@@ -88,6 +93,16 @@ export function Footer() {
               <li>
                 <a href="https://instagram.com/prideeventz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                   <Instagram className="w-4 h-4" /> Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/company/prideeventz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://www.justdial.com/Kochi/Pride-Events" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                  <span className="w-4 h-4 flex items-center justify-center font-bold text-[9px] border border-muted-foreground/60 rounded-xs">JD</span> Justdial
                 </a>
               </li>
             </ul>
@@ -125,6 +140,9 @@ export function Footer() {
             </a>
             <a href="https://instagram.com/prideeventz" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-foreground transition-colors">
               <Instagram size={20} />
+            </a>
+            <a href="https://linkedin.com/company/prideeventz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-foreground transition-colors">
+              <Linkedin size={20} />
             </a>
           </div>
 

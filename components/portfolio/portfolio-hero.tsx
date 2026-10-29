@@ -18,30 +18,17 @@ export function PortfolioHero() {
           backgroundImage: 'url("/portfolio/hero/luxury-event-party-concert-pink-purple-lighting-cr.jpg")',
         }}
       />
-      {/* Gradient Overlay - Pink to White */}
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-500/60 via-orange-300/40 to-white/60" />
-
-      {/* Parallax Background Zoom Effect */}
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Dark overlay & cinematic gradient */}
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-background" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Main Headline with Fade-up Animation */}
-        <h1
-          className={`text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 transition-all duration-1000 ${
-            "animate-fade-in-up"
-          }`}
-        >
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-16">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
           Portfolio
         </h1>
-
-        {/* Subheading */}
-        <p
-          className={`text-2xl md:text-3xl text-muted-foreground font-medium transition-all duration-1000 delay-200 ${
-            "animate-fade-in-up"
-          }`}
-        >
-          Where every detail counts, our work stands out.
+        <p className="text-lg sm:text-2xl text-white/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          Where every detail counts, and every experience makes history.
         </p>
       </div>
 

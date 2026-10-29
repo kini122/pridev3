@@ -77,7 +77,7 @@ export function ServicePageLayout({
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
             <Link
               href="/contact"
-              className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-md hover:bg-accent transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
+              className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-xl shadow-primary/20 flex items-center gap-2 w-full sm:w-auto justify-center text-base"
             >
               Discuss Your Project <ArrowRight className="w-5 h-5" />
             </Link>
@@ -270,23 +270,25 @@ export function ServicePageLayout({
 
       {/* 8. CTA Section */}
       <section className="py-24 px-4 bg-background relative overflow-hidden border-t border-border/50">
-        <div className="max-w-5xl mx-auto text-center relative z-10 bg-secondary/80 backdrop-blur-sm border border-border/50 p-12 md:p-20 rounded-3xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">{ctaHeadline}</h2>
+        <div className="max-w-5xl mx-auto text-center relative z-10 bg-secondary/80 backdrop-blur-md border border-border/60 p-10 md:p-16 rounded-3xl shadow-2xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[100px] pointer-events-none rounded-full" />
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">{ctaHeadline}</h2>
           {ctaSubheadline && (
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">{ctaSubheadline}</p>
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">{ctaSubheadline}</p>
           )}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-md font-bold text-lg hover:bg-accent transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold text-base hover:bg-primary/90 transition-all duration-300 shadow-xl shadow-primary/20 w-full sm:w-auto"
             >
               Contact Us Today
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a
               href="https://wa.me/919895690349"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#25D366] text-white rounded-md font-bold text-lg hover:bg-[#1ebe5d] transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#25D366] text-white rounded-lg font-semibold text-base hover:bg-[#1ebe5d] transition-all duration-300 shadow-lg shadow-[#25D366]/20 w-full sm:w-auto"
             >
               <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp Us
             </a>

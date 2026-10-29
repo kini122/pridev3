@@ -1,63 +1,83 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { CheckCircle2, ShieldCheck, Sparkles, Sliders, Layers } from "lucide-react"
 
-const expertiseAreas = [
-  { label: "PRIVATE PARTIES", percentage: 95 },
-  { label: "PROJECT MANAGEMENT", percentage: 90 },
-  { label: "DIGITAL MARKETING", percentage: 85 },
-  { label: "STAGE COORDINATION", percentage: 92 },
-  { label: "FIREWORKS & VFX", percentage: 88 },
+const capabilities = [
+  {
+    icon: Layers,
+    title: "Stage Architecture & Scenography",
+    metric: "100% In-House 3D Renders",
+    description: "Custom stage fabrication, thematic backdrops, and immersive environmental branding tailored to venue dimensions.",
+  },
+  {
+    icon: Sliders,
+    title: "Acoustic Engineering & Light Shows",
+    metric: "Concert-Grade Rigs",
+    description: "Multi-point line array acoustics, intelligent moving heads, laser programming, and live broadcast audio mixing.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Operational & Statutory Compliance",
+    metric: "Zero-Incident Safety Standard",
+    description: "Local government liaison, crowd safety zoning, fire & electrical permits, and certified on-site medical protocols.",
+  },
+  {
+    icon: Sparkles,
+    title: "Experiential Ground Activations",
+    metric: "Tier 1 to Tier 3 Reach",
+    description: "High-impact consumer engagement roadshows, promotional setups, and interactive product demo pavilions.",
+  },
 ]
 
 export function ExpertiseSection() {
-  const [isVisible, setIsVisible] = useState(true)
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  
-
   return (
-    <section ref={sectionRef} className="py-24 px-4 bg-background">
+    <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/30">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-foreground mb-8 leading-tight">
-              Our Expertise in Event Management
+          <div className="lg:col-span-5">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+              Technical Competence
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight font-bold text-foreground mb-6 leading-tight">
+              Institutional Expertise in Live Event Production
             </h2>
 
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              With over a decade of experience, we've developed comprehensive expertise across all aspects of event
-              management. From intimate corporate gatherings to grand celebrations, our team brings meticulous planning
-              and creative excellence to every project.
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed">
+              Over fifteen years of high-pressure live show execution have honed our capabilities into an exact science. We eliminate the guesswork from live productions.
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our expert team combines technical knowledge with artistic vision, ensuring every event is executed with
-              precision and leaves a lasting impression on your guests.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Our multidisciplinary engineers, show callers, and project managers work under synchronized run-sheets to ensure your event runs smoothly from the first soundcheck to the final applause.
             </p>
           </div>
 
-          {/* Right Column - Progress Bars */}
-          <div className="space-y-8">
-            {expertiseAreas.map((area, index) => (
-              <div key={area.label}>
-                <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-bold text-foreground">{area.label}</label>
-                  <span className="text-sm font-bold text-primary">{area.percentage}%</span>
+          {/* Right Column - Capabilities Grid */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {capabilities.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.title}
+                  className="p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/60 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-md group"
+                >
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4 group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-xs font-bold text-primary uppercase tracking-wider block mb-1">
+                      {item.metric}
+                    </span>
+                    <h3 className="text-lg font-bold text-foreground mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                  <div
-                    className={`h-full bg-primary rounded-full transition-all duration-1000 ease-out ${
-                      isVisible ? "w-full" : "w-0"
-                    }`}
-                    style={{
-                      width: isVisible ? `${area.percentage}%` : "0%",
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>

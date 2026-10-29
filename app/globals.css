@@ -82,7 +82,7 @@
 }
 
 @theme inline {
-  --font-sans: "HK MODULAR", sans-serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -131,6 +131,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::selection {
+    background-color: #f97316;
+    color: #000000;
   }
 }
 

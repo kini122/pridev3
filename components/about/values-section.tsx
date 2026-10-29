@@ -1,69 +1,67 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Lightbulb, Zap, Target } from "lucide-react"
-import { motion } from "framer-motion"
+import { Lightbulb, Target, Zap, ShieldCheck } from "lucide-react"
 
 const values = [
   {
     icon: Lightbulb,
-    title: "Creativity",
-    description: "We push boundaries and think outside the box to create unique experiences",
+    title: "Artistic Innovation",
+    tagline: "Bold Conceptual Design",
+    description: "We refuse templated thinking. Every production is built around an original scenographic narrative tailored to your specific audience.",
   },
   {
     icon: Target,
-    title: "Precision",
-    description: "Every detail matters. We execute with meticulous attention to perfection",
+    title: "Surgical Precision",
+    tagline: "Absolute Operational Control",
+    description: "Every minute on our cue-sheets is calibrated. From technical run-throughs to live staging, nothing is left to chance.",
   },
   {
     icon: Zap,
-    title: "Innovation",
-    description: "We stay ahead of trends and embrace new technologies and ideas",
+    title: "Technical Excellence",
+    tagline: "Concert-Grade Infrastructure",
+    description: "We deploy industry-standard line arrays, high-resolution calibrated LED walls, and intelligent lighting rigs with full redundancy.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Institutional Trust",
+    tagline: "Pan-India Compliance",
+    description: "Full statutory compliance, police and municipal permissions, insurance coverage, and seasoned crisis management.",
   },
 ]
 
 export function ValuesSection() {
   return (
-    <section className="py-24 px-4" style={{ backgroundColor: "rgba(249, 179, 111, 0.9)" }}>
+    <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Our Values</h2>
-          <p className="text-lg text-white/80">The principles that guide everything we do</p>
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary mb-3">Core Pillars</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">Values That Drive Every Production</h2>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">The guiding principles underpinning over a decade of benchmark event execution.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {values.map((value, index) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value) => {
             const Icon = value.icon
             return (
-              <motion.div
+              <div
                 key={value.title}
-                className="group cursor-pointer h-80 perspective"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                whileHover={{ y: -10 }}
+                className="group p-8 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/60 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-md hover:shadow-xl hover:-translate-y-1"
               >
-                <motion.div
-                  className="relative w-full h-full bg-background rounded-md border border-border/50 p-8 flex flex-col items-center justify-center text-center overflow-hidden"
-                  whileHover={{ boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.div
-                    className="flex justify-center mb-4"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="p-4 bg-primary/10 rounded-full">
-                      <Icon className="w-8 h-8 text-primary" />
-                    </div>
-                  </motion.div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{value.title}</h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
-                </motion.div>
-              </motion.div>
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-105 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-bold text-primary tracking-widest uppercase block mb-1">
+                    {value.tagline}
+                  </span>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+              </div>
             )
           })}
         </div>

@@ -23,10 +23,22 @@ export function ClientLogos() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-background">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-foreground text-center">Impactful Clients & Companies</h2>
-        <CustomersSection customers={customers} className="pt-8" />
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 pb-10 border-b border-white/10">
+          <div className="max-w-2xl">
+            <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-3">
+              Institutional Trust
+            </p>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-[1.05]">
+              Trusted By Industry Leaders
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-white/60 max-w-md leading-relaxed font-light">
+            We partner with Fortune 500 corporations, marquee consumer brands, and national institutions for their high-stakes productions.
+          </p>
+        </div>
+        <CustomersSection customers={customers} />
       </div>
     </section>
   )

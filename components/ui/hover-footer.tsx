@@ -53,11 +53,10 @@ export const TextHoverEffect = ({
         >
           {hovered && (
             <>
-              <stop offset="0%" stopColor="#eab308" />
-              <stop offset="25%" stopColor="#ef4444" />
-              <stop offset="50%" stopColor="#80eeb4" />
-              <stop offset="75%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#8b5cf6" />
+              <stop offset="0%" stopColor="#f97316" />
+              <stop offset="40%" stopColor="#fb923c" />
+              <stop offset="70%" stopColor="#ea580c" />
+              <stop offset="100%" stopColor="#fed7aa" />
             </>
           )}
         </linearGradient>
@@ -89,7 +88,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="fill-transparent stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
+        className="fill-transparent stroke-white/10 font-sans text-7xl font-extrabold"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -100,7 +99,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="fill-transparent stroke-primary font-[helvetica] text-7xl font-bold dark:stroke-primary/60"
+        className="fill-transparent stroke-primary/30 font-sans text-7xl font-extrabold"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -124,7 +123,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="fill-transparent font-[helvetica] text-7xl font-bold"
+        className="fill-transparent font-sans text-7xl font-extrabold"
       >
         {text}
       </text>
@@ -135,10 +134,10 @@ export const TextHoverEffect = ({
 export const FooterBackgroundGradient = () => {
   return (
     <div
-      className="absolute inset-0 z-0"
+      className="absolute inset-0 z-0 pointer-events-none"
       style={{
         background:
-          "radial-gradient(125% 125% at 50% 10%, #0F0F1166 50%, #3ca2fa33 100%)",
+          "radial-gradient(100% 100% at 50% 0%, rgba(249, 115, 22, 0.05) 0%, rgba(15, 15, 17, 0) 70%)",
       }}
     />
   );
