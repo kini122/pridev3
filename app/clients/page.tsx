@@ -4,12 +4,10 @@ import { useEffect, useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ClientsHero } from "@/components/clients/clients-hero"
-import { FeaturedClientsGrid } from "@/components/clients/featured-clients-grid"
-import { TestimonialsSection } from "@/components/clients/testimonials-section"
 import { ClientLogosCarousel } from "@/components/clients/client-logos-carousel"
-import { ImpactStatement } from "@/components/clients/impact-statement"
+import { FeaturedClientsGrid } from "@/components/clients/featured-clients-grid"
 import { StatsIndicators } from "@/components/clients/stats-indicators"
-import { IndustrySectors } from "@/components/clients/industry-sectors"
+import { TestimonialsSection } from "@/components/clients/testimonials-section"
 import { ClientSuccessStories } from "@/components/clients/client-success-stories"
 import { PartnershipTiers } from "@/components/clients/partnership-tiers"
 import { ClientsCTA } from "@/components/clients/clients-cta"
@@ -29,21 +27,19 @@ export default function ClientsPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
       {/* Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-300"
+        className="fixed top-0 left-0 h-[2px] bg-primary z-50 transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
       />
 
       <Navbar />
       <ClientsHero />
-      <FeaturedClientsGrid />
-      <TestimonialsSection />
       <ClientLogosCarousel />
-      <ImpactStatement />
+      <FeaturedClientsGrid />
       <StatsIndicators />
-      <IndustrySectors />
+      <TestimonialsSection />
       <ClientSuccessStories />
       <PartnershipTiers />
       <ClientsCTA />

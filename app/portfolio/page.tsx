@@ -6,11 +6,8 @@ import { Footer } from "@/components/footer"
 import { PortfolioHero } from "@/components/portfolio/portfolio-hero"
 import { FilterTabs } from "@/components/portfolio/filter-tabs"
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid"
-import { LoadMoreSection } from "@/components/portfolio/load-more-section"
-import { CTABanner } from "@/components/portfolio/cta-banner"
-import { RelatedServices } from "@/components/portfolio/related-services"
 import { TestimonialSlider } from "@/components/portfolio/testimonial-slider"
-import { StatsCounter } from "@/components/portfolio/stats-counter"
+import { CTABanner } from "@/components/portfolio/cta-banner"
 
 export default function PortfolioPage() {
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -28,10 +25,10 @@ export default function PortfolioPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
       {/* Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-300"
+        className="fixed top-0 left-0 h-[2px] bg-primary z-50 transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -39,11 +36,8 @@ export default function PortfolioPage() {
       <PortfolioHero />
       <FilterTabs onFilterChange={setActiveFilter} />
       <PortfolioGrid filter={activeFilter} />
-      <LoadMoreSection />
-      <CTABanner />
-      <RelatedServices />
       <TestimonialSlider />
-      <StatsCounter />
+      <CTABanner />
       <Footer />
     </main>
   )

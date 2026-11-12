@@ -81,7 +81,7 @@ export function ProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-36 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 select-text"
+      className="relative py-16 sm:py-22 lg:py-26 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 select-text"
     >
       {/* Background Images that change as steps change as per scroll transition */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -106,29 +106,29 @@ export function ProcessSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Pinned Header (Locks in place when section enters, stays pinned till section ends) */}
-          <div className="lg:col-span-5 sticky top-24 lg:top-28 h-fit self-start z-20">
-            <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-4 drop-shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          {/* Left Column: Pinned Header on Desktop, Natural Flow on Mobile */}
+          <div className="lg:col-span-5 relative lg:sticky lg:top-28 h-fit self-start z-20 pb-4 lg:pb-0">
+            <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-3 sm:mb-4 drop-shadow-sm">
               Operational Methodology
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-[1.05] mb-6 drop-shadow-md">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-[1.05] mb-4 sm:mb-6 drop-shadow-md">
               How we work.
             </h2>
-            <p className="text-base sm:text-lg text-white/75 leading-relaxed max-w-md font-light mb-8 drop-shadow-sm">
+            <p className="text-sm sm:text-base md:text-lg text-white/75 leading-relaxed max-w-md font-light mb-6 sm:mb-8 drop-shadow-sm">
               Our proven architectural process ensures every event is executed with mathematical precision and striking creativity.
             </p>
 
             {/* Interactive Phase Indicator */}
-            <div className="flex items-center gap-3 pt-6 border-t border-white/15">
+            <div className="flex items-center gap-2.5 sm:gap-3 pt-4 sm:pt-6 border-t border-white/15">
               {processSteps.map((step, index) => (
                 <button
                   key={step.phase}
                   onClick={() => handleStepClick(index)}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                     activeStep === index
-                      ? "w-12 bg-primary shadow-[0_0_12px_rgba(249,115,22,0.6)]"
-                      : "w-4 bg-white/20 hover:bg-white/40"
+                      ? "w-8 sm:w-12 bg-primary shadow-[0_0_12px_rgba(249,115,22,0.6)]"
+                      : "w-3 sm:w-4 bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Jump to phase ${step.phase}`}
                 />
@@ -140,7 +140,7 @@ export function ProcessSection() {
           </div>
 
           {/* Right Column: Architectural Steps */}
-          <div className="lg:col-span-7 z-10">
+          <div className="lg:col-span-7 z-10 w-full">
             <div className="flex flex-col">
               {processSteps.map((step, index) => {
                 const isActive = activeStep === index
@@ -151,14 +151,14 @@ export function ProcessSection() {
                       stepRefs.current[index] = el
                     }}
                     onClick={() => handleStepClick(index)}
-                    className={`group relative border-t border-white/20 py-20 sm:py-32 transition-all duration-500 cursor-pointer ${
+                    className={`group relative border-t border-white/20 py-10 sm:py-16 lg:py-24 transition-all duration-500 cursor-pointer ${
                       isActive ? "opacity-100" : "opacity-40 hover:opacity-75"
                     }`}
                   >
-                    <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-                      <div className="md:w-28 shrink-0">
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 md:gap-10">
+                      <div className="sm:w-20 md:w-28 shrink-0">
                         <span
-                          className={`text-6xl sm:text-7xl md:text-8xl font-mono font-black transition-all duration-500 ${
+                          className={`text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-mono font-black transition-all duration-500 ${
                             isActive
                               ? "text-primary drop-shadow-[0_0_28px_rgba(249,115,22,0.5)] scale-105"
                               : "text-white/25 group-hover:text-primary/60"
@@ -167,15 +167,15 @@ export function ProcessSection() {
                           {step.phase}
                         </span>
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <h3
-                          className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight transition-colors duration-300 drop-shadow-sm ${
+                          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 tracking-tight transition-colors duration-300 drop-shadow-sm ${
                             isActive ? "text-white" : "text-white/70 group-hover:text-white"
                           }`}
                         >
                           {step.title}
                         </h3>
-                        <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl font-light drop-shadow-sm">
+                        <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed max-w-2xl font-light drop-shadow-sm">
                           {step.description}
                         </p>
                       </div>

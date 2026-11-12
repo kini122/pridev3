@@ -43,13 +43,6 @@ export function HeroCarousel() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
       </div>
 
-      {/* Giant Ghost Watermark (Signature Total Management Aesthetic) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-10">
-        <span className="text-[24vw] font-black tracking-tighter text-white/[0.035] leading-none uppercase transform -translate-y-4">
-          PRIDE
-        </span>
-      </div>
-
       <Floating sensitivity={1.5} className="z-20 flex items-center justify-center pointer-events-none">
 
         {/* Content - Fully Selectable */}

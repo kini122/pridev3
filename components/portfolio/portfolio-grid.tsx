@@ -298,8 +298,21 @@ interface PortfolioGridProps {
   filter?: string
 }
 
+const getProjectDescription = (item: (typeof portfolioItems)[0]) => {
+  const categoryDescriptions: Record<string, string> = {
+    corporate: "High-stakes corporate summit engineered with multi-screen LED sync, precision acoustics, and bespoke stagecraft.",
+    weddings: "Bespoke luxury matrimonial celebration featuring custom floral architecture, atmospheric lighting, and flawless guest hospitality.",
+    concerts: "Stadium-scale live concert engineering with concert-grade line arrays, intelligent moving heads, and certified crowd safety zoning.",
+    mice: "Multi-track convention infrastructure with digital delegate management, simultaneous translation, and VIP logistics.",
+    exhibitions: "Turnkey German hangar pavilion architecture with custom 3D stall fabrication and high-impact branding corridors.",
+    "brand-activation": "High-impact experiential brand activation engaging thousands of consumers with interactive touchpoints.",
+    "rural-marketing": "Grassroots Tier-2 and Tier-3 on-ground promotional campaign featuring custom mobile vans and localized outreach.",
+  }
+  return categoryDescriptions[item.category] || "Turnkey live event production engineered with architectural stagecraft, acoustic precision, and disciplined execution."
+}
+
 export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
-  const [displayedItems, setDisplayedItems] = useState(9)
+  const [displayedItems, setDisplayedItems] = useState(12)
   const [filteredItems, setFilteredItems] = useState(portfolioItems)
   const [selectedItem, setSelectedItem] = useState<(typeof portfolioItems)[0] | null>(null)
 
@@ -309,19 +322,51 @@ export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
     } else {
       setFilteredItems(portfolioItems.filter((item) => item.category === filter))
     }
-    setDisplayedItems(9)
+    setDisplayedItems(12)
   }, [filter])
+
+  // Lock background scroll when modal is active
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [selectedItem])
+
+  // Keyboard navigation for premium modal (Left/Right arrows + Escape)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedItem) return
+      if (e.key === "Escape") setSelectedItem(null)
+      if (e.key === "ArrowLeft") {
+        const currentIdx = filteredItems.findIndex((it) => it.id === selectedItem.id)
+        const prevIdx = currentIdx > 0 ? currentIdx - 1 : filteredItems.length - 1
+        setSelectedItem(filteredItems[prevIdx])
+      }
+      if (e.key === "ArrowRight") {
+        const currentIdx = filteredItems.findIndex((it) => it.id === selectedItem.id)
+        const nextIdx = currentIdx < filteredItems.length - 1 ? currentIdx + 1 : 0
+        setSelectedItem(filteredItems[nextIdx])
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [selectedItem, filteredItems])
 
   return (
     <>
-      <section className="py-16 px-4 bg-background">
-        <div className="max-w-7xl mx-auto">
-          {/* Masonry Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <section className="py-16 sm:py-24 px-0 bg-black border-t border-white/10">
+        <div className="w-full">
+          {/* Edge-to-edge seamless grid with zero gap between panels */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
             {filteredItems.slice(0, displayedItems).map((item, index) => (
               <div
                 key={item.id}
-                className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer animate-fade-in-up border border-border/60 hover:border-primary/50 shadow-md hover:shadow-xl transition-all duration-300"
+                className="group relative overflow-hidden rounded-none aspect-[4/3] cursor-pointer border border-white/10 hover:border-white/30 transition-all duration-500 bg-[#0d0d10]"
                 style={{ animationDelay: `${index * 50}ms` }}
                 onClick={() => setSelectedItem(item)}
               >
@@ -329,22 +374,19 @@ export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
                 <img
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-                {/* Content - Slides up on Hover */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                {/* Content - No Category Heading */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-7">
                   <div className="w-full">
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wider block mb-1">
-                      {item.category.replace("-", " ")}
-                    </span>
-                    <h3 className="text-white font-bold text-base sm:text-lg mb-1 leading-snug">
+                    <h3 className="text-white font-bold text-lg sm:text-xl mb-1.5 leading-snug tracking-tight group-hover:text-primary transition-colors uppercase [word-spacing:0.12em]">
                       {item.title}
                     </h3>
-                    <p className="text-white/60 text-xs font-medium">
+                    <p className="text-white/40 text-xs font-mono uppercase tracking-wider">
                       {item.date}
                     </p>
                   </div>
@@ -357,76 +399,90 @@ export function PortfolioGrid({ filter = "all" }: PortfolioGridProps) {
               </div>
             ))}
           </div>
+
+          {/* Load More Productions Button */}
+          {displayedItems < filteredItems.length && (
+            <div className="flex justify-center pt-14 pb-4">
+              <button
+                onClick={() => setDisplayedItems((prev) => prev + 12)}
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-white/5 border border-white/15 text-white hover:bg-primary hover:text-black hover:border-primary px-9 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 shadow-xl cursor-pointer"
+              >
+                <span>Load More</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Lightbox Modal */}
+      {/* Fullscreen Premium Modal View */}
       {selectedItem && (
         <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-md"
+          className="fixed inset-0 bg-black z-50 flex items-center justify-center animate-fade-in"
           onClick={() => setSelectedItem(null)}
         >
-          <div className="relative max-w-5xl w-full flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            {/* Close Button */}
+          <div
+            className="relative w-full h-full bg-black overflow-hidden flex items-center justify-center rounded-none"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Simple Close Button (X) - Top Right: Small, no round panel or hover background */}
             <button
               onClick={() => setSelectedItem(null)}
-              className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors z-50 p-2"
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 z-40 text-white/70 hover:text-white transition-colors p-2 cursor-pointer focus:outline-none"
+              aria-label="Close project preview"
             >
-              <X className="w-8 h-8" />
+              <X className="w-6 h-6 sm:w-7 sm:h-7 drop-shadow-md" />
             </button>
 
-            {/* Navigation & Image Container */}
-            <div className="relative w-full flex justify-center items-center group">
-              {/* Left Navigation */}
-              {filteredItems.findIndex((item) => item.id === selectedItem.id) > 0 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    const idx = filteredItems.findIndex((item) => item.id === selectedItem.id)
-                    setSelectedItem(filteredItems[idx - 1])
-                  }}
-                  className="absolute left-2 md:-left-12 z-20 bg-black/50 hover:bg-primary p-3 rounded-full text-white transition-colors backdrop-blur-sm"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-              )}
+            {/* Simple Navigation - Left Arrow (<): Small, no round panel or hover background */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                const currentIdx = filteredItems.findIndex((it) => it.id === selectedItem.id)
+                const prevIdx = currentIdx > 0 ? currentIdx - 1 : filteredItems.length - 1
+                setSelectedItem(filteredItems[prevIdx])
+              }}
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-40 text-white/70 hover:text-white transition-colors p-2 cursor-pointer focus:outline-none"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 drop-shadow-md" />
+            </button>
 
-              {/* Image */}
+            {/* Simple Navigation - Right Arrow (>): Small, no round panel or hover background */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                const currentIdx = filteredItems.findIndex((it) => it.id === selectedItem.id)
+                const nextIdx = currentIdx < filteredItems.length - 1 ? currentIdx + 1 : 0
+                setSelectedItem(filteredItems[nextIdx])
+              }}
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-40 text-white/70 hover:text-white transition-colors p-2 cursor-pointer focus:outline-none"
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 drop-shadow-md" />
+            </button>
+
+            {/* Fullscreen Image Display */}
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
               <img
                 src={selectedItem.image || "/placeholder.svg"}
                 alt={selectedItem.title}
-                className="max-h-[60vh] w-auto max-w-full object-contain rounded-md shadow-2xl animate-fade-in-up"
+                className="w-full h-full object-contain bg-black"
               />
 
-              {/* Right Navigation */}
-              {filteredItems.findIndex((item) => item.id === selectedItem.id) < filteredItems.length - 1 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    const idx = filteredItems.findIndex((item) => item.id === selectedItem.id)
-                    setSelectedItem(filteredItems[idx + 1])
-                  }}
-                  className="absolute right-2 md:-right-12 z-20 bg-black/50 hover:bg-primary p-3 rounded-full text-white transition-colors backdrop-blur-sm"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              )}
-            </div>
-
-            {/* Project Details Below Image */}
-            <div className="w-full mt-6 md:mt-8 text-center text-white max-w-3xl mx-auto px-4">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">{selectedItem.title}</h2>
-              <p className="text-white/60 text-sm md:text-base font-medium mb-3">{selectedItem.date}</p>
-              <p className="text-white/80 text-sm md:text-base mb-6 hidden md:block">
-                This project showcases our expertise in creating memorable event experiences with attention to every
-                detail.
-              </p>
-              <button 
-                onClick={() => setSelectedItem(null)}
-                className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-primary/90 transition-colors"
-              >
-                View More Projects
-              </button>
+              {/* Description of Event at Bottom Left Over Image (Readable & Elegant) */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/85 to-transparent pt-32 pb-8 sm:pb-12 px-6 sm:px-12 md:px-16 z-30 pointer-events-none">
+                <div className="max-w-3xl pointer-events-auto">
+                  <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary mb-2 block font-semibold">
+                    {selectedItem.date}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase leading-[1.08] [word-spacing:0.18em] tracking-[0.02em] mb-3 drop-shadow-md">
+                    {selectedItem.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm md:text-base text-white/80 font-light leading-relaxed max-w-2xl drop-shadow-md">
+                    {getProjectDescription(selectedItem)}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

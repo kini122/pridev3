@@ -100,9 +100,6 @@ export function TMFooter() {
               <Link href="/about" className="block text-white/80 hover:text-primary transition-colors text-xs uppercase tracking-wider">
                 About
               </Link>
-              <Link href="/careers" className="block text-white/80 hover:text-primary transition-colors text-xs uppercase tracking-wider">
-                Careers
-              </Link>
               <Link href="/clients" className="block text-white/80 hover:text-primary transition-colors text-xs uppercase tracking-wider">
                 Clients
               </Link>
@@ -129,7 +126,7 @@ export function TMFooter() {
 
           <div className="flex items-center gap-6">
             <span>© {new Date().getFullYear()} Pride Event Management Group.</span>
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+            <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
           </div>

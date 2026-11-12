@@ -139,17 +139,6 @@ export function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/careers"
-                  className={`transition-colors duration-200 relative pb-1 ${isActive("/careers")
-                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
-                      : "text-white/80 hover:text-white after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all after:duration-200"
-                    }`}
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
                   className={`transition-colors duration-200 relative pb-1 ${isActive("/contact")
                       ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
@@ -232,21 +221,14 @@ export function Navbar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/portfolio") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
             >
-              Portfolio
+              Work
             </Link>
             <Link
               href="/clients"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/clients") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
             >
-              Our Clients
-            </Link>
-            <Link
-              href="/careers"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`block px-4 py-3 text-sm font-medium transition-colors ${isActive("/careers") ? "text-primary bg-primary/10" : "text-white/80 hover:text-white hover:bg-white/[0.04]"}`}
-            >
-              Careers
+              Clients
             </Link>
             <Link
               href="/contact"

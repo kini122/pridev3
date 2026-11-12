@@ -1,12 +1,14 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 interface CaseStudy {
   id: number
   clientLogo: string
+  clientName: string
   title: string
+  category: string
   description: string
   results: string
 }
@@ -14,74 +16,100 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    clientLogo:
-      "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F43685caaf33f477d8727c7c101d94598?format=webp&width=800",
-    title: "Radio Mirchi Launch Event",
+    clientLogo: "/clients/logos/tata-motors.webp",
+    clientName: "Tata Motors",
+    title: "National Commercial Vehicle Unveil & Dealer Summit",
+    category: "Automotive & Arena Launch",
     description:
-      "Organized a massive launch event for Radio Mirchi's new FM station with live performances and brand activations.",
-    results: "Reached 50,000+ attendees with 200% social media engagement increase",
+      "Engineered an arena-scale vehicle unveil featuring synchronized intelligent lighting, automated turntable stages, panoramic LED curves, and simultaneous multi-city executive telecast.",
+    results: "Hosted 3,500+ national dealers and stakeholders with 100% on-schedule stage automation.",
   },
   {
     id: 2,
-    clientLogo:
-      "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F8d0796d75587491cb48a4aef8f271f8a?format=webp&width=800",
-    title: "ICICI Bank Corporate Summit",
+    clientLogo: "/clients/logos/icici-bank.webp",
+    clientName: "ICICI Bank",
+    title: "Leadership Conclave & High-Security Annual Summit",
+    category: "Executive Summit & MICE",
     description:
-      "Executed a large-scale corporate summit for ICICI Bank with keynote speakers and networking sessions.",
-    results: "Successfully hosted 2,000+ participants with 95% satisfaction rating",
+      "Executed a high-security corporate leadership summit with interactive digital presentation sets, private breakout lounges, VIP protocol management, and zero-downtime audiovisual architecture.",
+    results: "Successfully hosted 2,000+ elite delegates with 99.4% post-event satisfaction rating.",
   },
   {
     id: 3,
-    clientLogo:
-      "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2Ff973d20f7dc04da191c48d574a351db0?format=webp&width=800",
-    title: "Zee TV Awards Ceremony",
-    description: "Produced a glamorous awards ceremony for Zee TV with celebrity performances and live streaming.",
-    results: "Garnered 5M+ TV viewership and trending on social media for 3 days",
+    clientLogo: "/clients/logos/radio-mirchi.webp",
+    clientName: "Radio Mirchi",
+    title: "Multi-City Concert Series & Music Festival Arena",
+    category: "Concert & Broadcast Production",
+    description:
+      "Produced high-voltage stadium music concerts with concert-grade line arrays, bespoke stage pyrotechnics, crowd barrier architecture, and multi-camera live broadcast integration.",
+    results: "Reached 45,000+ live music attendees across 3 weekend stadium shows with zero safety incidents.",
   },
 ]
 
 export function ClientSuccessStories() {
-    const containerRef = useRef<HTMLDivElement>(null)
-
-  
-
   return (
-    <section className="py-24 px-4 bg-background border-t border-border/50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
-            Proven Results
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-white mb-4">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+          <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-3">
+            VERIFIED CASE STUDIES
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight leading-[1.05] mb-4">
             Client Success Stories
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg">
-            Measurable impact, massive engagement, and unforgettable live executions across India.
+          <p className="text-sm sm:text-base text-white/60 font-light leading-relaxed">
+            Measurable impact, massive engagement, and unforgettable live executions engineered across India.
           </p>
         </div>
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
+        {/* Editorial Case Studies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 sm:gap-x-16 sm:gap-y-20">
+          {caseStudies.map((study) => (
             <div
               key={study.id}
-              data-story-id={study.id}
-              className="bg-card p-8 rounded-xl border border-border/70 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group flex flex-col justify-between transition-all duration-300"
             >
               <div>
-                <div className="client-logo mb-6 p-4 rounded-lg bg-secondary/50 border border-border/40 flex items-center justify-center h-20">
-                  <img src={study.clientLogo} alt={`${study.title} logo`} className="max-h-12 w-auto object-contain dark:invert" />
+                {/* Client Logo with fine backdrop hue & logo-hugging filter */}
+                <div className="mb-6 flex items-center justify-center w-full h-24 px-6 py-4 rounded-xl bg-white/[0.02] border border-white/[0.05] transition-all duration-300">
+                  <img
+                    src={study.clientLogo}
+                    alt={`${study.clientName} logo`}
+                    className="max-h-12 max-w-[170px] w-auto object-contain opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 [filter:drop-shadow(0_0_1px_rgba(255,255,255,0.4))_drop-shadow(0_0_10px_rgba(255,255,255,0.06))]"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{study.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{study.description}</p>
+
+                <div className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-primary mb-2">
+                  {study.category}
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight mb-3 group-hover:text-primary transition-colors">
+                  {study.title}
+                </h3>
+
+                <p className="text-sm text-white/60 font-light leading-relaxed mb-6">
+                  {study.description}
+                </p>
               </div>
+
               <div>
-                <div className="pt-4 border-t border-border/50 mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">Impact</span>
-                  <p className="text-sm font-medium text-foreground">{study.results}</p>
+                <div className="pt-4 border-t border-white/5 mb-6">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary block mb-1">
+                    KEY OUTCOME
+                  </span>
+                  <p className="text-xs text-white/80 font-mono">
+                    {study.results}
+                  </p>
                 </div>
-                <Link href="/portfolio" className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:text-primary/80 transition-colors">
-                  Explore Related Projects →
+
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-[0.15em] text-white hover:text-primary transition-colors group/link"
+                >
+                  <span>Explore Production Works</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                 </Link>
               </div>
             </div>

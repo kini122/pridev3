@@ -31,13 +31,6 @@ export function TMHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black pointer-events-none" />
       </div>
 
-      {/* Giant Ghost Watermark (Signature TM G Aesthetic) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-10">
-        <span className="text-[24vw] font-extrabold tracking-tighter text-white/[0.03] leading-none uppercase transform -translate-y-4">
-          PRIDE
-        </span>
-      </div>
-
       {/* Hero Headline */}
       <div className="relative z-20 text-center px-4 sm:px-6 max-w-6xl mx-auto flex flex-col items-center justify-center pt-16">
         <motion.h1

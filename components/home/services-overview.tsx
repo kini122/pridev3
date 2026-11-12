@@ -9,49 +9,49 @@ const services = [
     title: "Corporate Events",
     description: "High-level annual general meetings, corporate galas, awards ceremonies, and leadership summits executed with precision.",
     href: "/services/corporate-events",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop",
+    image: "/corporate/hero/corporate-event-presentation-stage-audience-pink-l.jpg",
   },
   {
     number: "02",
     title: "Destination Weddings",
     description: "Ultra-luxury bespoke wedding productions across Kerala, Rajasthan, and international venues with cinematic flair.",
     href: "/services/destination-weddings",
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop",
+    image: "/beach-wedding-setup.jpg",
   },
   {
     number: "03",
     title: "Concerts & Live Shows",
     description: "Stadium-scale concerts, festivals, concert sound engineering, intelligent light shows, and master security planning.",
     href: "/services/concerts",
-    image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop",
+    image: "/concert-stage-lighting-event.jpg",
   },
   {
     number: "04",
     title: "Conferences & MICE",
     description: "Multi-track international conventions, exhibition pavilions, badge management, and seamless VIP logistics.",
     href: "/services/conferences-mice",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
+    image: "/conference-room-setup-corporate-event.jpg",
   },
   {
     number: "05",
     title: "Exhibitions & Trade Shows",
     description: "Custom modular stall architecture, 3D experiential spaces, high-impact branding, and visitor engagement booths.",
     href: "/services/exhibitions",
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop",
+    image: "/exhibition-trade-show-atomfrost.jpg",
   },
   {
     number: "06",
     title: "Brand Activation",
     description: "Immersive consumer touchpoints, experiential pop-ups, viral photo opportunities, and influencer launch events.",
     href: "/services/brand-activation",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+    image: "/tech-brand-activation-event.jpg",
   },
   {
     number: "07",
     title: "Rural Marketing",
     description: "Grassroots BTL campaigns, branded mobile vans, and Tier 2/3 city roadshows spanning across South India.",
     href: "/services/rural-marketing",
-    image: "https://images.unsplash.com/photo-1506869640319-ce1a44e1e0cb?q=80&w=2070&auto=format&fit=crop",
+    image: "/sunfeast-arrowroot-stage-branding-corporate-event.jpg",
   },
   {
     number: "08",
@@ -64,7 +64,7 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10 bg-black border-t border-white/10">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative z-10 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         {/* Section Header (Total Management Monospace Label & Clean Heading) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-white/10 pb-10">

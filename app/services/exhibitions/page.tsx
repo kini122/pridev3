@@ -1,10 +1,24 @@
+import { Metadata } from "next"
 import { ServicePageLayout } from "@/components/services/service-page-layout"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
+export const metadata: Metadata = {
+  title: "Exhibitions & Trade Show Stall Fabrication | Pride Eventz",
+  description: "Custom modular stall architecture, 3D experiential spaces, high-impact branding, and visitor engagement booths built with precision across India.",
+  alternates: {
+    canonical: "/services/exhibitions",
+  },
+  openGraph: {
+    title: "Exhibitions & Trade Show Stall Fabrication | Pride Eventz",
+    description: "Custom modular stall architecture, 3D experiential spaces, and turnkey exhibition booths across India.",
+    url: "/services/exhibitions",
+  },
+}
+
 export default function ExhibitionsPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-black text-white selection:bg-primary selection:text-black">
       <Navbar />
       <ServicePageLayout
         title="Exhibitions & Trade Shows"
@@ -14,7 +28,11 @@ export default function ExhibitionsPage() {
         whatWeOffer={[{"title": "3D Stall Design", "description": "Creating visually striking, functional, and brand-compliant stall architectures."}, {"title": "Custom Fabrication", "description": "High-quality woodwork, metal structures, and premium finishing."}, {"title": "AV & Tech Integration", "description": "Embedding touch screens, video walls, and interactive product demos."}, {"title": "Brand Graphics", "description": "High-resolution backlit branding, 3D lettering, and flex printing."}, {"title": "On-Site Management", "description": "Providing hostesses, lead generation staff, and technical support."}, {"title": "Dismantling & Storage", "description": "Safe breakdown and storage of reusable stall components post-event."}]}
         ourApproach={[{"title": "Brand Understanding", "description": "Analyzing your products to determine the best display and interaction methods."}, {"title": "3D Rendering", "description": "Presenting photorealistic mockups of the proposed stall design."}, {"title": "Workshop Fabrication", "description": "Building components in our controlled workshop to ensure quality."}, {"title": "On-Site Installation", "description": "Rapid, safe assembly at the venue adhering to strict expo guidelines."}, {"title": "Handover", "description": "Delivering a fully functional, pristine stall before the doors open."}]}
         keyHighlights={[{"title": "Striking Visuals", "description": "Designs scientifically formulated to draw the eye from across the hall."}, {"title": "Functional Spaces", "description": "Intelligent layouts that allow for product display, private meetings, and storage."}, {"title": "Turnkey Solutions", "description": "You simply arrive on day one; we handle all the heavy lifting and permissions."}, {"title": "Interactive Elements", "description": "Integrating VR/AR and gamification to increase visitor dwell time."}]}
-        portfolioItems={[{"title": "Auto Expo Mega Pavilion", "category": "Exhibition", "description": "A massive 500sqm custom-built pavilion featuring rotating car displays and VIP lounges.", "image": "/trade-show-booth-setup-exhibition.jpg", "result": "Awarded 'Best Stall Design' at the expo."}, {"title": "Tech Expo Interactive Booth", "category": "Exhibition", "description": "A sleek, modern stall focusing on touch-screen interactions and software demos.", "image": "/corporate-presentation-pidilite-brands-showcase.jpg", "result": "Generated over 400 qualified B2B leads."}]}
+        portfolioItems={[
+          {"title": "Auto Expo Mega Pavilion", "category": "Exhibition", "description": "A massive 500sqm custom-built pavilion featuring rotating car displays and VIP lounges.", "image": "/trade-show-booth-setup-exhibition.jpg", "result": "Awarded 'Best Stall Design' at the expo."},
+          {"title": "Tech Expo Interactive Booth", "category": "Exhibition", "description": "A sleek, modern stall focusing on touch-screen interactions and software demos.", "image": "/corporate-presentation-pidilite-brands-showcase.jpg", "result": "Generated over 400 qualified B2B leads."},
+          {"title": "Global Trade Fair Pavilion", "category": "Exhibition", "description": "Expansive turnkey German hangar expo hall with custom modular stall fabrication and visitor corridors.", "image": "/busy-exhibition-hall.jpg", "result": "Hosted 650+ B2B delegates over 4 days."}
+        ]}
         testimonial={{"client": "Marketing Head, Industrial Manufacturing", "quote": "Our stall was the talk of the exhibition. The finish quality of the fabrication was premium, and the Pride Eventz team was incredibly supportive."}}
         ctaHeadline="Stand Out at Your Next Trade Show"
         ctaSubheadline="Contact our 3D design team for a custom stall concept and quotation."

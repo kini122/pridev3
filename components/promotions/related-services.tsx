@@ -8,7 +8,7 @@ const relatedServices = [
   {
     title: "Corporate Events",
     description: "Professional corporate gatherings and conferences",
-    href: "/services/corporate",
+    href: "/services/corporate-events",
     image: "/promotions/related/corporate-event.png",
   },
   {
@@ -18,9 +18,9 @@ const relatedServices = [
     image: "/promotions/related/exhibition-event.jpg",
   },
   {
-    title: "Private Parties",
+    title: "Destination Weddings",
     description: "Personalized celebration experiences",
-    href: "/services/private-parties",
+    href: "/services/destination-weddings",
     image: "/placeholder.svg?height=300&width=400",
   },
 ]

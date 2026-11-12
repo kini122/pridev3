@@ -1,39 +1,39 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowUpRight, Phone } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-card/60 border-t border-border/40 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center] from-primary/10 via-transparent to-transparent pointer-events-none" />
+    <section className="relative py-16 sm:py-22 lg:py-26 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black border-y border-white/10">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-primary mb-4">
           Partner With Pride Eventz
         </p>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-[1.05] mb-6">
           Ready to Create Your Next Unforgettable Event?
         </h2>
-        <p className="text-base sm:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-          From high-stakes enterprise summits to unforgettable luxury weddings, our production director is ready to bring your vision into reality.
+        <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+          From high-stakes enterprise summits to unforgettable luxury weddings, our production crew is ready to bring your vision into reality.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-black font-bold px-8 py-4 text-base hover:bg-orange-400 transition-all shadow-xl hover:shadow-primary/20 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-primary text-black font-bold px-9 py-4 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-2xl group w-full sm:w-auto"
           >
             <span>Discuss Your Project</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
           <a
             href="tel:+919846596349"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-card border border-border/80 text-foreground font-semibold px-7 py-4 text-base hover:bg-white/5 transition-colors w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-white/5 border border-white/15 text-white hover:bg-white/10 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 w-full sm:w-auto"
           >
             <Phone className="w-4 h-4 text-primary" />
-            <span>Call +91 9846596349</span>
+            <span>+91 98465 96349</span>
           </a>
         </div>
       </div>

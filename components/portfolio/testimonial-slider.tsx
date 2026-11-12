@@ -1,133 +1,136 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
+import { Star } from "lucide-react"
 
 const testimonials = [
   {
     id: 1,
-    name: "Rajesh Kumar",
-    company: "Tech Startup",
+    name: "Janeen Babu",
+    company: "Head of Regional Marketing, Pidilite Industries",
     quote:
-      "Pride Eventz transformed our product launch into an unforgettable experience. Their attention to detail was exceptional.",
+      "Pride Eventz delivered our national brand showcase with flawless technical execution. Their zero-downtime AV coordination, custom 3D scenography, and crowd management set an unprecedented benchmark for our brand across India.",
     rating: 5,
-    image: "/portfolio/testimonials/professional-man-headshot.png",
+    image: "/professional-man-headshot.png",
   },
   {
     id: 2,
+    name: "Ananya & Rohan Singhania",
+    company: "Destination Matrimonial, The Leela Palace Udaipur",
+    quote:
+      "They didn't just plan our wedding; they sculpted a cinematic royal dream across three unforgettable days. From the sunset floral mandap to the midnight afterparty, our 600+ guests experienced flawless five-star hospitality.",
+    rating: 5,
+    image: "/professional-woman-headshot.png",
+  },
+  {
+    id: 3,
+    name: "Gokul Anand",
+    company: "Senior Operations Director, Hero MotoCorp",
+    quote:
+      "Managing 1,800+ executive delegates across multi-track plenary halls requires absolute precision. Pride Eventz handled the complete stagecraft, live broadcast feeds, and VIP protocols with institutional rigor.",
+    rating: 5,
+    image: "/professional-headshot.png",
+  },
+  {
+    id: 4,
     name: "Priya Sharma",
-    company: "Private Party Client",
-    quote: "Our celebration was perfect thanks to Pride Eventz. They made our vision come to life beautifully.",
+    company: "Experiential Marketing Head, Sunfeast & ITC Brands",
+    quote:
+      "The multi-state promotional van networks and shopping mall atrium installations managed by Pride Eventz delivered an immediate 35% surge in retail conversions. Their ground execution team is world-class.",
     rating: 5,
     image: "/portfolio/testimonials/professional-woman-headshot.png",
   },
   {
-    id: 3,
-    name: "Amit Patel",
-    company: "Corporate Client",
+    id: 5,
+    name: "Rajesh Kumar",
+    company: "Festival Director, Live Nation Arena Concerts",
     quote:
-      "Professional, creative, and reliable. Pride Eventz exceeded all our expectations for our annual conference.",
+      "Concert-grade acoustics, intelligent moving heads, and heavy-duty structural trussing safely holding 20,000+ attendees. Pride Eventz is our trusted production powerhouse for stadium-scale arena live events.",
     rating: 5,
-    image: "/placeholder.svg?height=100&width=100",
+    image: "/portfolio/testimonials/professional-man-headshot.png",
   },
 ]
 
 export function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [autoPlay, setAutoPlay] = useState(true)
 
+  // Infinite round loop: automatically advances every 7 seconds
+  // Resetting on currentIndex ensures a fresh 7-second window if a user manually clicks a dot
   useEffect(() => {
-    if (!autoPlay) return
-
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
+    }, 7000)
 
-    return () => clearInterval(interval)
-  }, [autoPlay])
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-    setAutoPlay(false)
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    setAutoPlay(false)
-  }
+    return () => clearInterval(timer)
+  }, [currentIndex])
 
   return (
-    <section className="py-24 px-4 bg-muted/30">
-      <div className="max-w-4xl mx-auto">
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight font-bold text-center text-foreground mb-16">What Our Clients Say</h2>
+    <section className="w-full py-16 sm:py-24 px-0 bg-black border-t border-white/10 overflow-hidden">
+      {/* Section Header - Refined & Smaller */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-12">
+        <p className="text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-2">
+          Client Voices
+        </p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white uppercase leading-tight">
+          What Our Clients Say
+        </h2>
+      </div>
 
-        {/* Carousel */}
-        <div className="relative">
-          {/* Testimonial Cards */}
-          <div className="overflow-hidden">
+      {/* Full-Screen Width Testimonial Carousel - Compact & Refined Scale */}
+      <div className="w-full relative overflow-hidden">
+        <div
+          className="flex w-full transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {testimonials.map((testimonial) => (
             <div
-              className="flex transition-transform duration-500"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              key={testimonial.id}
+              className="w-full min-w-full flex-shrink-0 px-6 sm:px-12 md:px-20 flex flex-col items-center justify-center text-center box-border"
             >
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-background rounded-md p-8 md:p-12 text-center">
-                    {/* Client Photo */}
-                    <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="w-16 h-16 rounded-full mx-auto mb-6 object-cover"
-                    />
+              <div className="w-full max-w-3xl mx-auto">
+                {/* Client Photo - Smaller */}
+                <img
+                  src={testimonial.image || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-4 object-cover border border-white/20 shadow-xl"
+                />
 
-                    {/* Quote */}
-                    <p className="text-lg text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
+                {/* Editorial Quote - Refined & Smaller */}
+                <blockquote className="text-sm sm:text-base md:text-lg text-white/90 mb-5 italic leading-relaxed font-light [word-spacing:0.12em]">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </blockquote>
 
-                    {/* Rating */}
-                    <div className="flex justify-center gap-1 mb-4">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-
-                    {/* Client Info */}
-                    <h3 className="font-bold text-foreground">{testimonial.name}</h3>
-                    <p className="text-muted-foreground text-sm">{testimonial.company}</p>
-                  </div>
+                {/* Rating */}
+                <div className="flex justify-center gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />
+                  ))}
                 </div>
-              ))}
+
+                {/* Client Info */}
+                <h3 className="font-bold text-white text-xs sm:text-sm tracking-wider uppercase [word-spacing:0.12em]">
+                  {testimonial.name}
+                </h3>
+                <p className="text-white/50 text-[10px] sm:text-xs font-mono uppercase tracking-[0.16em] mt-1">
+                  {testimonial.company}
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-primary text-primary-foreground p-2 rounded-full hover:bg-accent transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-primary text-primary-foreground p-2 rounded-full hover:bg-accent transition-colors"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentIndex(index)
-                  setAutoPlay(false)
-                }}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentIndex ? "bg-primary w-8" : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
+        {/* Minimal Navigation Dots */}
+        <div className="flex justify-center items-center gap-2 mt-8 sm:mt-10">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
+                index === currentIndex ? "w-7 bg-primary" : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

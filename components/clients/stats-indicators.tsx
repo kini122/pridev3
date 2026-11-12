@@ -1,21 +1,20 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Smile, CalendarDays, Handshake, ShieldCheck } from "lucide-react"
 
 interface Stat {
   id: number
   number: number
   label: string
   suffix: string
-  icon: React.ElementType
+  sublabel: string
 }
 
 const stats: Stat[] = [
-  { id: 1, number: 500, label: "Corporate & Social Clients", suffix: "+", icon: Smile },
-  { id: 2, number: 1000, label: "Live Event Days Delivered", suffix: "+", icon: CalendarDays },
-  { id: 3, number: 50, label: "National Brand Partners", suffix: "+", icon: Handshake },
-  { id: 4, number: 99, label: "Client Retention Rate", suffix: "%", icon: ShieldCheck },
+  { id: 1, number: 500, label: "Corporate & Social Clients", suffix: "+", sublabel: "Trusted partnerships across South India" },
+  { id: 2, number: 1000, label: "Live Event Days Delivered", suffix: "+", sublabel: "Zero production failures logged" },
+  { id: 3, number: 50, label: "National Brand Partners", suffix: "+", sublabel: "Blue-chip & enterprise accounts" },
+  { id: 4, number: 99, label: "Client Retention Rate", suffix: "%", sublabel: "Year-on-year repeat contracts" },
 ]
 
 export function StatsIndicators() {
@@ -66,34 +65,29 @@ export function StatsIndicators() {
   }, [])
 
   return (
-    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/30">
+    <section className="bg-[#0a0a0c] border-y border-white/10">
       <div ref={containerRef} className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
-          {stats.map((stat) => {
-            const Icon = stat.icon
-            return (
-              <div
-                key={stat.id}
-                className="group flex items-center gap-5 p-6 rounded-2xl border border-border/60 hover:border-primary/50 bg-card/60 backdrop-blur-sm transition-all duration-300 shadow-md"
-              >
-                {/* Emblem */}
-                <div className="shrink-0 w-14 h-14 rounded-xl flex items-center justify-center bg-primary/10 border border-primary/20 text-primary group-hover:scale-105 transition-transform">
-                  <Icon className="w-6 h-6" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          {stats.map((stat) => (
+            <div
+              key={stat.id}
+              className="py-12 sm:py-16 px-6 sm:px-8 flex flex-col justify-between group hover:bg-white/[0.02] transition-colors"
+            >
+              <div>
+                <div className="text-4xl sm:text-5xl md:text-6xl font-mono font-bold text-white tracking-tight mb-2 group-hover:text-primary transition-colors">
+                  {counts[stat.id] || 0}
+                  <span className="text-primary ml-1">{stat.suffix}</span>
                 </div>
-
-                {/* Text */}
-                <div className="text-left">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-                    {counts[stat.id] || 0}
-                    <span className="text-primary ml-0.5">{stat.suffix}</span>
-                  </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground font-medium mt-0.5 leading-snug">
-                    {stat.label}
-                  </div>
+                <div className="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-white/80 font-medium leading-snug">
+                  {stat.label}
                 </div>
               </div>
-            )
-          })}
+
+              <div className="mt-6 pt-4 border-t border-white/5 text-xs text-white/40 font-light">
+                {stat.sublabel}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

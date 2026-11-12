@@ -52,7 +52,7 @@ export function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 overflow-hidden"
     >
       {/* Subtle atmospheric glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />

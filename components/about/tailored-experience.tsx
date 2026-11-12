@@ -5,32 +5,32 @@ import { ArrowRight, Check } from "lucide-react"
 
 export function TailoredExperience() {
   return (
-    <section className="py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/30">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column - Image */}
-          <div className="lg:col-span-6 relative aspect-[4/3] rounded-2xl overflow-hidden border border-border/60 shadow-xl group">
+          <div className="lg:col-span-6 relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
             <img
               src="/about/tailored/balloon-decoration-setup-black-gold.jpg"
               alt="Pride Eventz tailored event atmosphere"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl backdrop-blur-md bg-black/40 border border-white/10 text-xs text-white/90">
-              <span className="font-semibold text-primary">Custom Atmosphere:</span> Bespoke stage and floral scenography for milestone celebrations.
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl backdrop-blur-md bg-black/60 border border-white/10 text-xs text-white/90">
+              <span className="font-semibold text-primary font-mono uppercase tracking-wider">Custom Atmosphere:</span> Bespoke stage and floral scenography for milestone celebrations.
             </div>
           </div>
 
-          {/* Right Column - Text Card */}
-          <div className="lg:col-span-6 p-8 sm:p-12 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/60 shadow-xl flex flex-col justify-center">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-              Bespoke Execution
+          {/* Right Column - Clean Direct Typography (No boxy panel behind text) */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-3">
+              BESPOKE EXECUTION
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight font-bold text-foreground mb-6 leading-tight">
-              Tailored, seamless event experiences.
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase leading-[1.05] mb-6">
+              Tailored, Seamless Event Experiences.
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
+            <div className="space-y-4 text-sm sm:text-base text-white/60 leading-relaxed mb-8 font-light">
               <p>
                 We understand that no two events share the same cadence. Whether designing an intimate private celebration or an all-hands corporate convention, our solutions are engineered ground-up around your vision, spatial requirements, and audience demographic.
               </p>
@@ -40,19 +40,19 @@ export function TailoredExperience() {
             </div>
 
             <div className="space-y-3 mb-8">
-              <div className="flex items-center gap-3 text-sm text-foreground/90 font-medium">
+              <div className="flex items-center gap-3 text-xs sm:text-sm text-white/80 font-medium">
                 <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3" />
                 </div>
                 <span>End-to-end dedicated show directorship</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-foreground/90 font-medium">
+              <div className="flex items-center gap-3 text-xs sm:text-sm text-white/80 font-medium">
                 <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3" />
                 </div>
                 <span>Transparent billing and itemized milestone schedules</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-foreground/90 font-medium">
+              <div className="flex items-center gap-3 text-xs sm:text-sm text-white/80 font-medium">
                 <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
                   <Check className="w-3 h-3" />
                 </div>
@@ -63,10 +63,10 @@ export function TailoredExperience() {
             <div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary text-black font-bold px-7 py-3.5 text-sm hover:bg-orange-400 transition-colors shadow-lg"
+                className="inline-flex items-center gap-3 rounded-full bg-primary text-black font-bold px-8 py-4 text-xs uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-xl group"
               >
-                <span>Request Tailored Consultation</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Schedule a Consultation</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

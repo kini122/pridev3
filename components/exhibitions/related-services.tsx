@@ -6,27 +6,27 @@ import { ArrowRight } from "lucide-react"
 
 const relatedServices = [
   {
-    title: "Trade Show Management",
-    description: "Professional trade show booth design, setup, and management",
-    href: "/services/corporate",
+    title: "Conferences & MICE",
+    description: "Professional conference, convention, and MICE management",
+    href: "/services/conferences-mice",
     image: "/exhibitions/gallery/trade-show-booth.jpg",
   },
   {
     title: "Corporate Events",
     description: "Comprehensive corporate event planning and execution",
-    href: "/services/corporate",
-    image: "/placeholder.svg?height=300&width=400",
-  },
-  {
-    title: "Product Launches",
-    description: "Impactful product launch events with maximum engagement",
-    href: "/services/promotions",
+    href: "/services/corporate-events",
     image: "/placeholder.svg?height=300&width=400",
   },
   {
     title: "Brand Activations",
     description: "Creative brand activation campaigns and experiences",
-    href: "/services/promotions",
+    href: "/services/brand-activation",
+    image: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    title: "Rural Marketing",
+    description: "Targeted on-ground campaigns across Tier 2 & 3 cities",
+    href: "/services/rural-marketing",
     image: "/placeholder.svg?height=300&width=400",
   },
 ]

@@ -17,18 +17,18 @@ export function RelatedServices() {
       image: "/corporate/related/exhibition-trade-show-event.jpg",
     },
     {
-      title: "Product Launches",
-      href: "/services/promotions",
+      title: "Brand Activations",
+      href: "/services/brand-activation",
       image: "/corporate/related/product-launch-event.png",
     },
     {
-      title: "Award Ceremonies",
-      href: "/services/corporate",
+      title: "Corporate Events",
+      href: "/services/corporate-events",
       image: "/corporate/related/award-ceremony.png",
     },
     {
-      title: "Team Building Events",
-      href: "/services/private-parties",
+      title: "Destination Weddings",
+      href: "/services/destination-weddings",
       image: "/corporate/related/team-building-outdoor-challenge.png",
     },
   ]

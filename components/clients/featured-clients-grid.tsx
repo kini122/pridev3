@@ -1,90 +1,107 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-
-interface ClientCard {
-  id: number
-  name: string
-  description: string
-  logo: string
-}
-
-const clients: ClientCard[] = [
-  {
-    id: 1,
-    name: "Fevicol",
-    description:
-      "One of the most trusted adhesive brands in India, Fevicol has set industry standards for decades. With reliability in manufacturing and construction, we made it a household name.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2Fa9cdc524d3464c029cc1b01cb24af14a?format=webp&width=800",
-  },
-  {
-    id: 2,
-    name: "Fevikwik",
-    description:
-      "Leading the instant adhesive segment with fierce loyalty, Fevikwik is known for its fast-acting, strong bonding formula. It is widely used for quick household repairs, industrial applications, and consumer needs.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2Fd7daeac74c234251bf4099d8cf47b791?format=webp&width=800",
-  },
-  {
-    id: 3,
-    name: "Mirchi",
-    description:
-      "A pioneer and undisputed king of the nationwide Radio leading each network, Radio Mirchi. With its engaging music, talk shows, and big FM presence, Mirchi connects with millions of listeners daily.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F3e0507135bd7417d9b2ccb7cbb359293?format=webp&width=800",
-  },
-  {
-    id: 4,
-    name: "Zespri",
-    description:
-      "It is a globally recognized best fruit & premium kiwi fruit brand delivering excellence in both offering a bright, vibrant taste & fresh produce world. The only quality nutritious fruit has grown successfully.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F63036d9ee4cb4551a327ef146ccd5f52?format=webp&width=800",
-  },
-  {
-    id: 5,
-    name: "ICICI Bank",
-    description:
-      "One of India's biggest and most prestigious for vast corporate banking. They offer comprehensive range of banking and financial services, including retail corporate, and a good banking solution.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2F091fdcb4dc784f1daa4b0cbaf287fedb?format=webp&width=800",
-  },
-  {
-    id: 6,
-    name: "Zee TV",
-    description:
-      "As India's original television story, it is a leading entertainment destination known for its creative programming, including blockbuster shows, reality shows and cultural storytelling.",
-    logo: "https://cdn.builder.io/api/v1/image/assets%2F1256c551aea145f5add95fd9566b369a%2Ff9b9fe73e0ae4513a30c0daf5dd06b61?format=webp&width=800",
-  },
-]
+import { useState } from "react"
+import clientsData from "@/data/clients.json"
+import { ChevronDown, ChevronUp } from "lucide-react"
 
 export function FeaturedClientsGrid() {
-    const containerRef = useRef<HTMLDivElement>(null)
+  const [showAll, setShowAll] = useState(false)
 
-  
+  // 12 premier initial enterprise alliances
+  const featuredSlugs = [
+    "tata-motors",
+    "samsung",
+    "lg",
+    "bosch",
+    "icici-bank",
+    "pepsico",
+    "itc-limited",
+    "aditya-birla",
+    "mahindra",
+    "hp",
+    "panasonic",
+    "marriott-bonvoy",
+  ]
+
+  const initialClients = featuredSlugs
+    .map((slug) => clientsData.find((c) => c.slug === slug))
+    .filter(Boolean) as typeof clientsData
+
+  // When showAll is true, display all 65 deduplicated brand cards
+  const displayedClients = showAll ? clientsData : initialClients
 
   return (
-    <section className="py-24 px-4 bg-background">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {clients.map((client, index) => (
-            <div
-              key={client.id}
-              data-card-id={client.id}
-              className="bg-card/60 backdrop-blur-sm p-8 sm:p-10 rounded-2xl border border-border/60 hover:border-primary/50 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Logo */}
-              <div className="client-logo mb-6">
-                <img src={client.logo} alt={`${client.name} logo`} className="w-40 h-auto mx-auto object-contain" />
-              </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+          <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-3">
+            STRATEGIC ALLIANCES
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight leading-[1.05] mb-4">
+            Featured Client Partnerships
+          </h2>
+          <p className="text-sm sm:text-base text-white/60 font-light leading-relaxed">
+            From Fortune 500 conglomerates to household consumer powerhouses, we engineer brand worlds that command respect.
+          </p>
+        </div>
 
-              {/* Content wrapper to constrain text width and align left like reference */}
-              <div className="max-w-[28rem] mx-auto text-left">
-                {/* Client Name */}
-                <h3 className="text-lg font-semibold text-foreground mb-3">{client.name}</h3>
+        {/* Editorial Brand Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14 sm:gap-x-16 sm:gap-y-16">
+          {displayedClients.map((client) => (
+            <div
+              key={client.slug}
+              className="group flex flex-col justify-between transition-all duration-300"
+            >
+              <div>
+                {/* Logo Display with fine logo-hugging border & subtle ambient backdrop hue */}
+                <div className="mb-6 flex items-center justify-center w-full h-24 px-6 py-4 rounded-xl bg-white/[0.02] border border-white/[0.05] transition-all duration-300">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="max-h-12 max-w-[170px] w-auto object-contain opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 [filter:drop-shadow(0_0_1px_rgba(255,255,255,0.4))_drop-shadow(0_0_10px_rgba(255,255,255,0.06))]"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Brand Name */}
+                <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight mb-1.5 group-hover:text-primary transition-colors">
+                  {client.name}
+                </h3>
+
+                {/* Category: subtle and below brand name */}
+                <p className="text-xs font-mono text-white/40 tracking-wider mb-3">
+                  {client.category}
+                </p>
 
                 {/* Description */}
-                <p className="text-muted-foreground leading-relaxed text-sm">{client.description}</p>
+                <p className="text-sm text-white/60 font-light leading-relaxed">
+                  {client.description}
+                </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Show More Brands Action */}
+        <div className="mt-16 sm:mt-20 text-center">
+          {!showAll ? (
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 group cursor-pointer"
+            >
+              <span>Show More</span>
+              <ChevronDown className="w-4 h-4 text-primary group-hover:translate-y-0.5 transition-transform" />
+            </button>
+          ) : (
+            <button
+              onClick={() => setShowAll(false)}
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 group cursor-pointer"
+            >
+              <span>Show Less</span>
+              <ChevronUp className="w-4 h-4 text-primary group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          )}
         </div>
       </div>
     </section>

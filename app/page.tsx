@@ -5,10 +5,12 @@ import { Navbar } from "@/components/navbar"
 import { HeroCarousel } from "@/components/home/hero-carousel"
 import { MissionStatement } from "@/components/home/mission-statement"
 import { ServicesOverview } from "@/components/home/services-overview"
+import { FeaturedWorks } from "@/components/home/featured-works"
 import { TeamStatement } from "@/components/home/team-statement"
 import { StatsSection } from "@/components/home/stats-section"
 import { ClientLogos } from "@/components/home/client-logos"
 import { ProcessSection } from "@/components/home/process-section"
+import { TestimonialSlider } from "@/components/portfolio/testimonial-slider"
 import { CTASection } from "@/components/home/cta-section"
 import { Footer } from "@/components/footer"
 
@@ -44,27 +46,32 @@ export default function Home() {
       {/* 3. Mission Statement (Who We Are) */}
       <MissionStatement />
 
-      {/* 4. Services Overview (All 8 Offerings) */}
+      {/* 4. Services Overview (All 8 Offerings - End-to-End Event Production) */}
       <ServicesOverview />
 
-      {/* 5. Team Statement (Architectural Warm Stone Contrast Panel) */}
+      {/* 5. Featured Productions (6 Marquee Works directly under End-to-End) */}
+      <FeaturedWorks />
+
+      {/* 6. Team Statement (Architectural Warm Stone Contrast Panel) */}
       <TeamStatement />
 
-      {/* 6. Stats Section (Architectural Numerals & Live Counter) */}
+      {/* 7. Stats Section (Architectural Numerals & Live Counter) */}
       <StatsSection />
 
-      {/* 7. Client Logos (All 16 Logos Maintained) */}
+      {/* 8. Client Logos */}
       <ClientLogos />
 
-      {/* 8. Process Section (Methodology) */}
+      {/* 9. Process Section (How we work.) */}
       <ProcessSection />
 
-      {/* 9. CTA Section (Everything you need to captivate your audience) */}
+      {/* 10. Testimonials (Client Voices / What Our Clients Say - directly below How we work.) */}
+      <TestimonialSlider />
+
+      {/* 11. CTA Section */}
       <CTASection />
 
-      {/* 10. Footer */}
+      {/* 12. Footer */}
       <Footer />
     </main>
   )
 }
-

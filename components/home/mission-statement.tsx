@@ -30,7 +30,7 @@ const PILLARS = [
 
 export function MissionStatement() {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden border-t border-border/40">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden border-t border-border/40">
       {/* Subtle ambient atmospheric glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/5 blur-[150px] pointer-events-none rounded-full" />
 

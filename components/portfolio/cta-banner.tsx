@@ -1,22 +1,22 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 export function CTABanner() {
   return (
-    <section className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-card/60 border-t border-border/40 overflow-hidden">
-      {/* Subtle warm glow */}
-      <div className="absolute inset-0 bg-radial-[circle_at_center] from-primary/10 via-transparent to-transparent pointer-events-none" />
+    <section className="relative py-16 sm:py-22 lg:py-26 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black border-y border-white/10">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-          Take The Next Step
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-primary mb-4">
+          Turnkey Execution
         </p>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-[1.05] mb-6">
           Have an Upcoming Project in Mind?
         </h2>
-        <p className="text-base sm:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
           From multi-day corporate conventions to landmark brand activations, our production crew is ready to execute with precision.
         </p>
 
@@ -24,14 +24,14 @@ export function CTABanner() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-xl hover:bg-orange-400 transition-all shadow-xl hover:shadow-primary/20 text-base"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-primary text-black font-bold px-9 py-4 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-2xl group w-full sm:w-auto"
           >
             <span>Plan Your Project</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
           <Link
             href="/services"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-card border border-border/80 text-foreground font-semibold rounded-xl hover:bg-white/5 transition-colors text-base"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-white/5 border border-white/15 text-white hover:bg-white/10 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 w-full sm:w-auto"
           >
             Explore Services
           </Link>

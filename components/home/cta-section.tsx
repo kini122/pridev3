@@ -5,16 +5,9 @@ import { ArrowUpRight, Phone } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="relative py-24 sm:py-36 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black border-y border-white/10">
+    <section className="relative py-16 sm:py-22 lg:py-26 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black border-y border-white/10">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
-
-      {/* Ghost Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-[0.03]">
-        <span className="text-[22vw] font-black uppercase tracking-tighter text-white">
-          CREATE
-        </span>
-      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <p className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-primary mb-4">

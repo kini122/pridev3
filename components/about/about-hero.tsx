@@ -1,58 +1,40 @@
-import { MapPin, Target, Sparkles } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 
 export function AboutHero() {
   return (
-    <section
-      className="relative w-full min-h-[85vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 bg-cover bg-center"
-      style={{
-        backgroundImage: 'url("/about/hero/luxury-event-venue-with-elegant-decorations.jpg")',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-black/40 to-black/60 pointer-events-none" />
+    <section className="relative w-full min-h-[75vh] flex flex-col items-center justify-center overflow-hidden pt-28 pb-16 bg-black">
+      {/* Background Image with Cinematic Overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center brightness-90"
+        style={{
+          backgroundImage: 'url("/about/hero/luxury-event-venue-with-elegant-decorations.jpg")',
+        }}
+      />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-[0.5px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black pointer-events-none" />
 
       {/* Hero Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl">
-          Crafting unforgettable events with creativity and style.
-        </h1>
-
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-12">
-          Over 15 years of transforming client aspirations into monumental experiences across Kerala and major metropolitan cities in India.
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
+        <p className="text-xs font-mono font-semibold uppercase tracking-[0.25em] text-primary mb-4">
+          Established 2014 • Kerala, India
         </p>
 
-        {/* Feature Badges */}
-        <div className="flex flex-wrap gap-4 sm:gap-6 justify-center items-center">
-          <div className="bg-card/70 backdrop-blur-md border border-border/80 px-6 py-4 rounded-2xl flex items-center gap-3 shadow-lg">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-              <MapPin className="w-5 h-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Headquarters</p>
-              <p className="text-sm font-bold text-foreground">Based in Kerala</p>
-            </div>
-          </div>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase leading-[1.08] [word-spacing:0.18em] tracking-[0.02em] drop-shadow-2xl">
+          Crafting Unforgettable Events <br />
+          <span className="text-white/95">With Style &amp; Spark.</span>
+        </h1>
 
-          <div className="bg-card/70 backdrop-blur-md border border-border/80 px-6 py-4 rounded-2xl flex items-center gap-3 shadow-lg">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-              <Target className="w-5 h-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Legacy</p>
-              <p className="text-sm font-bold text-foreground">Established in 2014</p>
-            </div>
-          </div>
+        <p className="text-sm sm:text-base md:text-lg text-white/70 tracking-[0.2em] uppercase max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md mb-8">
+          Turnkey Event Production • Experiential Design • Pan-India
+        </p>
+      </div>
 
-          <div className="bg-card/70 backdrop-blur-md border border-border/80 px-6 py-4 rounded-2xl flex items-center gap-3 shadow-lg">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Track Record</p>
-              <p className="text-sm font-bold text-foreground">2100+ Projects Done</p>
-            </div>
-          </div>
-        </div>
+      {/* Minimal Scroll Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none select-none">
+        <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50 font-medium">
+          SCROLL
+        </span>
+        <ChevronDown className="w-4 h-4 text-white/40 animate-bounce" />
       </div>
     </section>
   )

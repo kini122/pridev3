@@ -9,13 +9,13 @@ const services = [
     icon: Briefcase,
     title: "Corporate Events",
     description: "Conferences, product launches, and team building experiences",
-    href: "/services/corporate",
+    href: "/services/corporate-events",
   },
   {
     icon: Megaphone,
-    title: "Promotions",
+    title: "Brand Activation",
     description: "Brand activations and marketing events that create buzz",
-    href: "/services/promotions",
+    href: "/services/brand-activation",
   },
   {
     icon: Grid3x3,
@@ -25,9 +25,9 @@ const services = [
   },
   {
     icon: Users,
-    title: "Private Parties",
-    description: "Birthdays, anniversaries, and intimate celebrations",
-    href: "/services/private-parties",
+    title: "Destination Weddings",
+    description: "Bespoke weddings, anniversaries, and grand celebrations",
+    href: "/services/destination-weddings",
   },
 ]
 
