@@ -29,11 +29,11 @@ export function CTASection() {
             <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
           <a
-            href="tel:+919846596349"
+            href="tel:+919895690349"
             className="inline-flex items-center justify-center gap-3 rounded-full bg-white/5 border border-white/15 text-white hover:bg-white/10 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 w-full sm:w-auto"
           >
             <Phone className="w-4 h-4 text-primary" />
-            <span>+91 98465 96349</span>
+            <span>+91 98956 90349</span>
           </a>
         </div>
       </div>

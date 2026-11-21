@@ -30,8 +30,8 @@ export function Footer() {
               We specialize in creating customized solutions that align with your vision and budget
             </p>
             <div className="mt-4 space-y-2 text-[14px]">
-              <a href="tel:+919846596349" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                <Phone className="w-4 h-4" /> Tel no.: +91 9846596349
+              <a href="tel:+919895690349" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <Phone className="w-4 h-4" /> Tel no.: +91 98956 90349
               </a>
               <a href="mailto:info@prideeventz.in" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4" /> Email: info@prideeventz.in

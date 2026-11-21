@@ -42,8 +42,8 @@ export default function PrivacyPolicyPage() {
                 info@prideeventz.in
               </a>{" "}
               or call{" "}
-              <a href="tel:+919846596349" className="text-primary hover:text-white transition-colors underline">
-                +91 98465 96349
+              <a href="tel:+919895690349" className="text-primary hover:text-white transition-colors underline">
+                +91 98956 90349
               </a>.
             </p>
           </div>

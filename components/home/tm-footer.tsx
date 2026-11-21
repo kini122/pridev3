@@ -56,8 +56,8 @@ export function TMFooter() {
                 Pride House, Subhash Chandra Bose Road,<br />
                 Jawahar Nagar, Kadavanthra, Kochi, Kerala 682020
               </p>
-              <a href="tel:+919846596349" className="text-xs text-primary hover:underline mt-2 inline-block">
-                +91 98465 96349
+              <a href="tel:+919895690349" className="text-xs text-primary hover:underline mt-2 inline-block">
+                +91 98956 90349
               </a>
             </div>
 

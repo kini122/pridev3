@@ -95,11 +95,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold text-white uppercase tracking-tight mb-2 group-hover:text-primary transition-colors">Direct Phone</h3>
               <p className="text-xs font-mono uppercase tracking-[0.15em] text-white/50 mb-5">CALL OUR EVENTS DESK DIRECTLY</p>
-              <a href="tel:+919846596349" className="text-lg font-mono font-bold text-white hover:text-primary transition-colors block">
-                +91 98465 96349
-              </a>
-              <a href="tel:+918089129778" className="text-sm font-mono text-white/50 hover:text-white transition-colors block mt-1.5">
-                +91 80891 29778
+              <a href="tel:+919895690349" className="text-lg font-mono font-bold text-white hover:text-primary transition-colors block">
+                +91 98956 90349
               </a>
             </div>
 
@@ -196,7 +193,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3.5 bg-[#0a0a0c] border border-white/15 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all text-sm"
-                      placeholder="+91 98465 96349"
+                      placeholder="+91 98956 90349"
                     />
                   </div>
 

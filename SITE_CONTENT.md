@@ -126,7 +126,7 @@
 - **Company Tagline / Intro**:
   - *"We specialize in creating customized solutions that align with your vision and budget"*
 - **Direct Contacts**:
-  - **Phone**: `+91 9846596349` (`tel:+919846596349`)
+  - **Phone**: `+91 9895690349` (`tel:+919895690349`)
   - **Email**: `info@prideeventz.in` (`mailto:info@prideeventz.in`)
 - **Column 2: Company Links**:
   - `About` → `/about`
@@ -1368,7 +1368,7 @@ All individual service detail pages share the unified template component `compon
 - **Heading**: `Have questions about careers or vendor collaborations?`
 - **Subtext**: `Connect directly with our Talent & Operations team.`
 - **Email**: `careers@prideeventz.in`
-- **Phone**: `+91 98465 96349`
+- **Phone**: `+91 98956 90349`
 
 ---
 
@@ -1385,7 +1385,6 @@ All individual service detail pages share the unified template component `compon
 ### Contact Info Cards
 1. **Phone Card** (Icon: Phone):
    - Primary: `+91 98956 90349`
-   - Secondary: `+91 80891 29778`
 2. **Email Card** (Icon: Mail):
    - `info@prideeventz.in`
 3. **Location Card** (Icon: MapPin):

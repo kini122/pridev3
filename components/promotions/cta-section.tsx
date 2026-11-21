@@ -60,11 +60,11 @@ export function CTASection() {
           style={{ transitionDelay: "0.3s" }}
         >
           <a
-            href="tel:+919846596349"
+            href="tel:+919895690349"
             className="flex items-center gap-3 text-white hover:text-gray-100 transition-colors"
           >
             <Phone className="w-5 h-5" />
-            <span>+91 9846596349</span>
+            <span>+91 98956 90349</span>
           </a>
           <a
             href="mailto:info@prideeventz.in"
@@ -74,7 +74,7 @@ export function CTASection() {
             <span>info@prideeventz.in</span>
           </a>
           <a
-            href="https://wa.me/919846596349"
+            href="https://wa.me/919895690349"
             className="flex items-center gap-3 text-white hover:text-gray-100 transition-colors"
           >
             <MessageCircle className="w-5 h-5" />

@@ -97,7 +97,7 @@ export default function RootLayout({
     image: "https://prideeventz.in/og-image.jpg",
     description:
       "Full-service event management and live production company in India specializing in corporate summits, luxury weddings, arena concerts, exhibitions, and brand activations.",
-    telephone: "+91-98465-96349",
+    telephone: "+91-98956-90349",
     email: "contact@prideeventz.in",
     priceRange: "$$$$",
     address: {
